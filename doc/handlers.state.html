@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Namespace: state</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Namespace: state</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>
+            <span class="ancestors"><a href="handlers.html">handlers</a>.</span>
+        
+        state
+        </h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description">Handles WAI-ARIA states. This differs from <a href="handlers.property.html">handlers.property</a>in that values are coerced into booleans before being set and aboolean (or the string "mixed") will be returned.<a href="handlers.state.html#.read">handlers.state.read</a> converts the value into a boolean.<a href="handlers.state.html#.set">handlers.state.set</a> sets the state.<a href="handlers.state.html#.get">handlers.state.get</a> gets the state.</div>
+        
+
+        
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="jquery.aria.js.html">jquery.aria.js</a>, <a href="jquery.aria.js.html#line569">line 569</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id=".get"><span class="type-signature">(private, static) </span>get<span class="signature">(element, name)</span><span class="type-signature"> &rarr; {<a href="global.html#ARIA_state">ARIA_state</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Reads the WAI-ARIA state on <code>element</code>. This differsfrom <a href="handlers.property.html#.get">handlers.property.get</a> in that the result isconverted into a boolean or the strign `"mixed"` before beingreturned. The <code>name</code> is still normalised (seejQuery.normaliseAria).
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>element</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Element</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Element to access.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">WAI-ARIA state to read.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="jquery.aria.js.html">jquery.aria.js</a>, <a href="jquery.aria.js.html#line705">line 705</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    State of the WAI-ARIA property.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="global.html#ARIA_state">ARIA_state</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Markup is:// &lt;div id="one" aria-busy="true" aria-checked="mixed">&lt;/div>var element = document.getElementById("one");handlers.state.get(element, "busy");     // -> truehandlers.state.get(element, "checked");  // -> "mixed"handlers.state.get(element, "disabled"); // -> undefined</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".read"><span class="type-signature">(private, static) </span>read<span class="signature">(raw)</span><span class="type-signature"> &rarr; {Boolean|String}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Reads the raw value and converts it into a boolean or the string<code>"mixed"</code> (always lower case). If <code>raw</code>cannot be correctly converted, it is assumed to be<code>true</code>.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>raw</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">?</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Value to read.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="jquery.aria.js.html">jquery.aria.js</a>, <a href="jquery.aria.js.html#line596">line 596</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Converted value.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Boolean</span>
+|
+
+<span class="param-type">String</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Examples</h5>
+    
+        <p class="code-caption">Converting values</p>
+    
+    <pre class="prettyprint"><code>handlers.state.read(true);    // -> truehandlers.state.read("false"); // -> falsehandlers.state.read("1");     // -> truehandlers.state.read(0);       // -> falsehandlers.state.read("mixed"); // -> "mixed"</code></pre>
+
+        <p class="code-caption">Unrecognised values default to true</p>
+    
+    <pre class="prettyprint"><code>handlers.state.read("2");      // -> truehandlers.state.read(-1);       // -> truehandlers.state.read([]);       // -> truehandlers.state.read("mixed."); // -> true</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".set"><span class="type-signature">(private, static) </span>set<span class="signature">(element, name, state, index)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Sets the WAI-ARIA state defined in <code>name</code> on the given<code>element</code>. This differs from<a href="handlers.property.html#.set">handlers.property.set</a> in that <code>state</code> isconverted into a boolean or <code>"mixed"</code> before beingassigned (see <a href="handlers.state.html#.read">handlers.state.read</a>) and there is no<code>convert</code> paramter. The <code>name</code> is stillnormalised (see<a href="external-jQuery.html#.normaliseAria">jQuery.normaliseAria</a>).
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>element</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Element</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Element to modify.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">WAI-ARIA attribute to set.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>state</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">?</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">State to set.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>index</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Index of <code>element</code> within the collection.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="jquery.aria.js.html">jquery.aria.js</a>, <a href="jquery.aria.js.html#line669">line 669</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Markup is:// &lt;div id="one">&lt;/div>// &lt;div id="two">&lt;/div>var one = document.getElementById("one");var two = document.getElementById("two");handlers.state.set(one, "busy", true);handlers.state.set(two, "checked", "mixed");// Now markup is:// &lt;div id="one" aria-busy="true">&lt;/div>// &lt;div id="two" aria-checked="mixed">&lt;/div></code></pre>
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Externals</h3><ul><li><a href="external-jQuery.html">jQuery</a></li></ul><h3>Namespaces</h3><ul><li><a href="handlers.html">handlers</a></li><li><a href="handlers.property.html">property</a></li><li><a href="handlers.reference.html">reference</a></li><li><a href="handlers.state.html">state</a></li></ul><h3>Global</h3><ul><li><a href="global.html#access">access</a></li><li><a href="global.html#identify">identify</a></li><li><a href="global.html#identity">identity</a></li><li><a href="global.html#interpretString">interpretString</a></li><li><a href="global.html#isElement">isElement</a></li><li><a href="global.html#startsWith">startsWith</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0-dev</a> on Thu Feb 23 2017 19:50:22 GMT+0300 (MSK)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

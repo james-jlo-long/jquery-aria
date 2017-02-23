@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Namespace: reference</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Namespace: reference</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>
+            <span class="ancestors"><a href="handlers.html">handlers</a>.</span>
+        
+        reference
+        </h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description">Handles modifying WAI-ARIA references. Unlike<a href="handlers.property.html">handlers.property</a>, this will create references to elementsand return them. The only defined methods are:<a href="handlers.reference.html#.set">handlers.reference.set</a> sets a reference.<a href="handlers.reference.html#.get">handlers.reference.get</a> gets a reference.</div>
+        
+
+        
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="jquery.aria.js.html">jquery.aria.js</a>, <a href="jquery.aria.js.html#line466">line 466</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id=".get"><span class="type-signature">(private, static) </span>get<span class="signature">(element, name)</span><span class="type-signature"> &rarr; {jQuery|undefined}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Gets the reference from the given <code>element</code> andreturns it as a <code>jQuery</code> object. This differs from<a href="handlers.property.html#.get">handlers.property.get</a> in that the match is assumed to bean ID and a DOM lookup is done based upon that. The<code>name</code> is still normalised (see<a href="external-jQuery.html#.normaliseAria">jQuery.normaliseAria</a>). Ifthe WAI-ARIA attribute is not found (see<a href="handlers.property.html#.has">handlers.property.has</a> then <code>undefined</code> isreturned.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>element</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Element</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Element to check.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">WAI-ARIA reference.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="jquery.aria.js.html">jquery.aria.js</a>, <a href="jquery.aria.js.html#line548">line 548</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    jQuery object representing the reference or undefined if        the attribute isn't set.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">jQuery</span>
+|
+
+<span class="param-type">undefined</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Markup is:// &lt;div id="one" aria=labelledby="two">&lt;/div>// &lt;div id="two">&lt;/div>var element = document.getElementById("one");handlers.reference.get(element, "labelledby");// -> $(&lt;div id="two">)handlers.reference.get(element, "controls");// -> undefined</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".set"><span class="type-signature">(private, static) </span>set<span class="signature">(element, name, reference, index)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Adds the WAI-ARIA reference to <code>element</code>. This differsfrom <a href="handlers.property.html#.set">handlers.property.set</a> in that <code>reference</code>is passed through<a href="http://api.jquery.com/jquery/">jQuery's $ function</a> andidentified (see<a href="external-jQuery.html#identify">jQuery#identify</a>) with the ID ofthe first match being used. There is also no <code>convert</code>parameter.The <code>name</code> is still normalised (see<a href="external-jQuery.html#.normaliseAria">jQuery.normaliseAria</a>). If<code>element</code> is not an element (see <a href="global.html#isElement">isElement</a>)then no action is taken.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>element</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Element</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Element to modify.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">WAI-ARIA attribute to set.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>reference</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#jQuery_param">jQuery_param</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Element to reference.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>index</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Index of <code>element</code> within the collection.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="jquery.aria.js.html">jquery.aria.js</a>, <a href="jquery.aria.js.html#line505">line 505</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Markup is:// &lt;div class="one">&lt;/div>// &lt;div class="two">&lt;/div>var element = document.querySelector(".one");handlers.reference.set(element, "labelledby", ".two");// Now markup is:// &lt;div class="one" aria=labelledby="anonymous0">&lt;/div>// &lt;div class="two" id="anonymous0">&lt;/div></code></pre>
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Externals</h3><ul><li><a href="external-jQuery.html">jQuery</a></li></ul><h3>Namespaces</h3><ul><li><a href="handlers.html">handlers</a></li><li><a href="handlers.property.html">property</a></li><li><a href="handlers.reference.html">reference</a></li><li><a href="handlers.state.html">state</a></li></ul><h3>Global</h3><ul><li><a href="global.html#access">access</a></li><li><a href="global.html#identify">identify</a></li><li><a href="global.html#identity">identity</a></li><li><a href="global.html#interpretString">interpretString</a></li><li><a href="global.html#isElement">isElement</a></li><li><a href="global.html#startsWith">startsWith</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0-dev</a> on Thu Feb 23 2017 19:50:22 GMT+0300 (MSK)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
